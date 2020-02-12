@@ -4,12 +4,19 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba($color-black, .8);
+  background-color: rgba($color-black, 0.8);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transition: all .3s;
-  animation: fixAnimation .5s;
+  transition: all 0.3s;
+  animation: fixAnimation 0.5s;
+
+  @supports (-webkit-backdrop-filter: blur(10px)) or
+    (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.3);
+  }
 
   &:target {
     opacity: 1;
@@ -31,7 +38,7 @@
       font-size: 3rem;
       text-decoration: none;
       display: inline-block;
-      transition: all .2s;
+      transition: all 0.2s;
       line-height: 1;
     }
 
@@ -45,14 +52,14 @@
     width: 75%;
     height: 50rem;
     background-color: $color-white;
-    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
 
     border-radius: 1rem;
     display: table;
     overflow: hidden;
     opacity: 0;
-    transform: translate(-50%, -50%) scale(.25);
-    transition: all .5s .2s;
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: all 0.5s 0.2s;
   }
 
   &__left {
@@ -60,7 +67,7 @@
     float: left;
     display: table-cell;
   }
-  
+
   &__right {
     width: 66.66667%;
     float: right;
